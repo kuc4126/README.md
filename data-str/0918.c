@@ -37,6 +37,7 @@ int main(void)
     int sum = 0;
     int i = 1;
     int sum2 = 0;
+    int sum3 = 0;
 
     while (i <= n)
     {
@@ -44,7 +45,8 @@ int main(void)
         i++;
     }
 
-    for (int j = 1; j <= n; j++)
+    int j;
+    for (j = 1; j <= n; j++)
     {
         sum2 += j;
     }
