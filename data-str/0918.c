@@ -49,6 +49,9 @@ int main(void)
         sum2 += j;
     }
 
+    sum3 = n * (n + 1) / 2;
+    printf("가우스의 덧셈 알고리즘으로 구한 1부터 %d까지의 총합은 %d입니다.\n", n, sum3);
+
     printf("while-1부터 %d까지의 총합은 %d입니다.\n", n, sum);
     printf("for-1부터 %d까지의 총합은 %d입니다.\n", n, sum2);
 
