@@ -1,7 +1,7 @@
 //250918강의날짜
 //입력받고 정수값의 부호 판정.
 
-#include<stdio.h>
+#include <stdio.h>
 
 int main(void)
 {
@@ -10,18 +10,7 @@ int main(void)
     printf("정수: ");
     scanf("%d", &n);
 
-    if (n > 0)
-    {
-        printf("양수입니다.\n");
-    }
+    printf("%s\n", (n>0) ? "양수입니다." : (n<0) ? "음수입니다." : "0입니다.");
 
-    else if (n < 0)
-    {
-        printf("음수입니다.\n");
-    }
-    
-    else
-        printf("0입니다.\n");
-    
-        return 0;
+    return 0;
 }
