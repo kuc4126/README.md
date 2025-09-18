@@ -8,7 +8,7 @@ int main(void)
     int n;
 
     printf("정수: ");
-    scanf("%d", &d);
+    scanf("%d", &n);
 
     if (n > 0)
     {
