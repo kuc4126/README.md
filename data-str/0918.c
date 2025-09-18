@@ -79,7 +79,7 @@ int main(void)
 */
 
 //1-11실습
-//왼쪽 아래가 직각인 이등변 삼각형을 출력
+//가운데 정렬 이등변 삼각형을 출력
 #include <stdio.h>
 
 int main(void)
