@@ -7,3 +7,5 @@ int main () {
     printf("hello world\n�̰Թ���");
     return 0;
 }
+
+//250918 강의
