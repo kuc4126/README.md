@@ -21,9 +21,9 @@ int main(void)
 }*/
 
 
-//1-7 예재
+//1-7~8 예재
 
-#include <stdio.h>
+/*#include <stdio.h>
 
 int main(void)
 {
@@ -56,6 +56,46 @@ int main(void)
 
     printf("while-1부터 %d까지의 총합은 %d입니다.\n", n, sum);
     printf("for-1부터 %d까지의 총합은 %d입니다.\n", n, sum2);
+
+    return 0;
+}*/
+
+//1-10실습
+/*#include <stdio.h>
+
+int main(void)
+{
+    printf("----곱셈표----\n");
+
+    for (int i = 1; i <= 9; i++)
+    {
+        for (int j = 1; j <= 9; j++)
+            printf("%d X %d = %3d", i, j, i * j);
+        putchar('\n');
+    }
+
+    return 0;
+}
+*/
+
+//1-11실습
+//왼쪽 아래가 직각인 이등변 삼각형을 출력
+#include <stdio.h>
+
+int main(void)
+{
+    int n;
+
+    printf("몇 단 삼각형입니까?: ");
+    scanf("%d", &n);
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = n-1; j > i; j--)
+            printf(" ");
+        for (int j = 0; j < 2*i+1; j++)
+            printf("*");
+        printf("\n");
+    }
 
     return 0;
 }
