@@ -31,5 +31,4 @@ int main(void)
     printf("for-1부터 %d까지의 총합은 %d입니다.\n", n, sum2);
 
     return 0;
-    
 }
