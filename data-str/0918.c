@@ -23,4 +23,5 @@ int main(void)
     else
         printf("0ют╢о╢ы.\n");
     
+        return 0;
 }
