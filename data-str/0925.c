@@ -48,7 +48,7 @@ int main(void) {
     }
      
     return 0;
-}*/
+}
 
 //교과서에 없는 예제
 int main(void) {
@@ -71,6 +71,62 @@ int main(void) {
     
     //동적 메모리 해제
     free(arr);
+
+    return 0;
+}
+
+//2-4
+int main(void)
+{
+    int el_num;
+    printf("요소 개수 : ");
+    scanf("%d", &el_num);
+    int*foo = calloc(el_num, sizeof(int));
+
+    if (foo==NULL)
+        puts("메모리 확보에 실패했습니다.");
+    else{
+        printf("초기화 상태 확인.\n", el_num);
+        for (int i = 0; i < el_num; i++){
+            printf("foo[%d] = %d\n", i, foo[i]);
+        }
+        
+        printf("%d개의 정수를 입력하세요.\n", el_num);
+        for (int i = 0; i < el_num; i++){
+            printf("a[%d] : ", i);
+            scanf("%d", &foo[i]);
+        }
+        printf("각 요소값은 아래와 같습니다.\n");
+        for (int i = 0; i < el_num; i++)
+            printf("a[%d] = %d\n", i, foo[i]);
+        free(foo);
+    }
+    
+    return 0;
+}*/
+
+//2-5 요소 개수가 n인 배열 a의 요소의 최댓값
+int maxof(const int foo[], int elem_cnt) {
+    int max = foo[0];
+    for (int i = 1; i < elem_cnt; i++){
+        if (foo[i] > max) max = foo[i];
+    }
+    return max;
+}
+
+int main(void)
+{
+    int number;
+    printf("사람 수: ");
+    scanf("%d", &number);
+    int *height = calloc(number, sizeof(int));
+    printf("%d명의 키를 입력하세요.\n", number);
+    for (int i = 0; i < number; i++) {
+        printf("height[%d]: ", i);
+        scanf("%d", &height[i]);
+    }
+    printf("최댓값은 %d입니다.\n", maxof(height, number));
+    free(height);
 
     return 0;
 }
