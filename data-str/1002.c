@@ -1,9 +1,10 @@
 //202530208 김은채 1002강의
 
 #include <stdio.h>
+#include <stdlib.h>
 
 /*
-// 배열 요소를 역순으로 정리하는 프로그램
+// 배열 요소를 역순으로 정리하는 프로그램 >딱히 중요X
 
 #include <stdio.h>
 #include <stdlib.h>         // calloc 때문에 쓰는거
@@ -28,7 +29,7 @@ int main(void) {
     return 0;
 }
 
-//2-8 대화식으로 기수 변환을 수행 >딱히 중요X
+//2-8 대화식으로 기수 변환을 수행 코드는 딱히 중요X 원리가 중요
 int main(void)
 {
     puts("10진수를 기수 변환합니다.");
@@ -61,9 +62,9 @@ int main(void)
         } while (retry == 1);
 
     return 0;
-    }*/
+    }
 
-//2-9실습
+//2-9실습 소수 나열_1  <중요
 
 int main(void){
     unsigned long counter = 0;
@@ -83,3 +84,28 @@ int main(void){
 
     return 0;    
 }
+
+//2-10실습 소수 나열_2
+
+int main(void)
+{
+    int prime[500];
+    int ptr = 0;
+    unsigned lond counter = 0;
+    prime[ptr++] = 2;
+    for (int n = 3; n <= 1000; n+= 2){
+        int i;
+        for (i = 1; i < ptr; i++){
+            counter++;
+            if (n%prime[i]==0)
+                break;            
+        }
+        if (ptr == i)
+            prime[ptr++] = n;       
+    }
+    for (int i = 0; i < ptr; i++)
+        printf("%d\n", prime[i]);
+    printf("나눗셈을 실행한 횟수: %lu\n", counter);
+
+    return 0;   
+}*/
