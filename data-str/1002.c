@@ -1,19 +1,19 @@
-//202530208 ±èÀºÃ¤ 1002°­ÀÇ
+//202530208 ê¹€ì€ì±„ 1002ê°•ì˜
 
 #include <stdio.h>
 #include <stdlib.h>
 
 /*
-// ¹è¿­ ¿ä¼Ò¸¦ ¿ª¼øÀ¸·Î Á¤¸®ÇÏ´Â ÇÁ·Î±×·¥ >µüÈ÷ Áß¿äX
+// ë°°ì—´ ìš”ì†Œë¥¼ ì—­ìˆœìœ¼ë¡œ ì •ë¦¬í•˜ëŠ” í”„ë¡œê·¸ë¨ >ë”±íˆ ì¤‘ìš”X
 
 #include <stdio.h>
-#include <stdlib.h>         // calloc ¶§¹®¿¡ ¾²´Â°Å
+#include <stdlib.h>         // calloc ë•Œë¬¸ì— ì“°ëŠ”ê±°
 
 
 int main(void) {
     int nx;
 
-    printf("¿ä¼Ò °³¼ö: ");
+    printf("ìš”ì†Œ ê°œìˆ˜: ");
     scanf("%d", &nx);
     int *x = calloc(nx, sizeof(int));
     for(int i = 0; i < nx; i++) {
@@ -21,7 +21,7 @@ int main(void) {
         scanf("%d", &x[i]);
     }
     ary_reverse(x, nx);
-    printf("¹è¿­ÀÇ ¿ä¼Ò¸¦ ¿ª¼øÀ¸·Î Á¤·ÄÇß½À´Ï´Ù.\n");
+    printf("ë°°ì—´ì˜ ìš”ì†Œë¥¼ ì—­ìˆœìœ¼ë¡œ ì •ë ¬í–ˆìŠµë‹ˆë‹¤.\n");
     for(int i = 0; i < nx; i++)
         printf("x[%d] = %d\n", i, x[i]);
     free(x);
@@ -29,10 +29,10 @@ int main(void) {
     return 0;
 }
 
-//2-8 ´ëÈ­½ÄÀ¸·Î ±â¼ö º¯È¯À» ¼öÇà ÄÚµå´Â µüÈ÷ Áß¿äX ¿ø¸®°¡ Áß¿ä
+//2-8 ëŒ€í™”ì‹ìœ¼ë¡œ ê¸°ìˆ˜ ë³€í™˜ì„ ìˆ˜í–‰ ì½”ë“œëŠ” ë”±íˆ ì¤‘ìš”X ì›ë¦¬ê°€ ì¤‘ìš”
 int main(void)
 {
-    puts("10Áø¼ö¸¦ ±â¼ö º¯È¯ÇÕ´Ï´Ù.");
+    puts("10ì§„ìˆ˜ë¥¼ ê¸°ìˆ˜ ë³€í™˜í•©ë‹ˆë‹¤.");
 
     int retry;
 
@@ -41,30 +41,30 @@ int main(void)
         int cd;
         char cno[512];
 
-        printf("º¯È¯ÇÏ´Â À½ÀÌ ¾Æ´Ñ Á¤¼ö: ");
+        printf("ë³€í™˜í•˜ëŠ” ìŒì´ ì•„ë‹Œ ì •ìˆ˜: ");
         scanf("%u", &no);
 
     do
     {
-        printf("¾î¶² Áø¼ö·Î º¯È¯ÇÒ±î¿ä?(2-36): ");
+        printf("ì–´ë–¤ ì§„ìˆ˜ë¡œ ë³€í™˜í• ê¹Œìš”?(2-36): ");
         scanf("%u", &cd);
     } while (cd < 2 || cd > 36);
 
     int dno = card_conv(no, cd, cno);
 
-    printf("%dÁø¼ö·Î´Â", cd);
+    printf("%dì§„ìˆ˜ë¡œëŠ”", cd);
     for (int i = 0; i < dno; i++)
         printf("%c", cno[i]);
-    printf("ÀÔ´Ï´Ù\n");
+    printf("ì…ë‹ˆë‹¤\n");
 
-    printf("ÇÑ ¹ø ´õ ÇÒ±î¿ä?(1...¿¹/0...¾Æ´Ï¿À): ");
+    printf("í•œ ë²ˆ ë” í• ê¹Œìš”?(1...ì˜ˆ/0...ì•„ë‹ˆì˜¤): ");
     scanf("%d", &retry);            
         } while (retry == 1);
 
     return 0;
     }
 
-//2-9½Ç½À ¼Ò¼ö ³ª¿­_1  <Áß¿ä
+//2-9ì‹¤ìŠµ ì†Œìˆ˜ ë‚˜ì—´_1  <ì¤‘ìš”
 
 int main(void){
     unsigned long counter = 0;
@@ -80,18 +80,18 @@ int main(void){
         if (n == i)
             printf("%d\n", n);       
     }
-    printf("³ª´°¼ÀÀ» ½ÇÇàÇÑ È½¼ö: %lu\n", counter);
+    printf("ë‚˜ëˆ—ì…ˆì„ ì‹¤í–‰í•œ íšŸìˆ˜: %lu\n", counter);
 
     return 0;    
 }
 
-//2-10½Ç½À ¼Ò¼ö ³ª¿­_2
+//2-10ì‹¤ìŠµ ì†Œìˆ˜ ë‚˜ì—´_2
 
 int main(void)
 {
     int prime[500];
     int ptr = 0;
-    unsigned lond counter = 0;
+    unsigned long counter = 0;
     prime[ptr++] = 2;
     for (int n = 3; n <= 1000; n+= 2){
         int i;
@@ -105,7 +105,7 @@ int main(void)
     }
     for (int i = 0; i < ptr; i++)
         printf("%d\n", prime[i]);
-    printf("³ª´°¼ÀÀ» ½ÇÇàÇÑ È½¼ö: %lu\n", counter);
+    printf("ë‚˜ëˆ—ì…ˆì„ ì‹¤í–‰í•œ íšŸìˆ˜: %lu\n", counter);
 
     return 0;   
 }*/
