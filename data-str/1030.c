@@ -29,87 +29,12 @@
 #   이때 스택의 상태는 호출한 함수의 역순으로 겹겹이 쌓여 있어
 #   함수 호출이 계층 구조로 이루어져 있음
 #   이 상태에서 y 함수의 실행이 종료되면 y 함수만 팝함
-
-
-# 스택 구조체 IntStack
-
-# 스택으로 사용할 배열을 가리키는 포인터 stk
-#   인덱스가 0인 요소를 스택의 바닥 bottom 이라 함
-#   배열의 메모리 공간 할당은 Initialize 함수로 생성
-
-# 스택의 최대 용량 max
-#   배열 stk의 요소 개수와 같음
-
-# 스택 포인터 ptr
-#   스택에 쌓여 있는 데이터의 개수를 나타냄
-#   스택이 비어 있으면 ptr의 값은 0이고 가득 차 있으면 max
-*/
-// int형 스택 IntStack (헤더)
-
-
-/*#ifndef ___IntStack
-#define ___IntStack
-
-//스택을 구현하는 구조체
-typedef struct {
-    int max;   // 스택 용량
-    int ptr;   // 스택 포인터
-    int *stk;  // 스택의 첫 요소에 대한 포인터
-} IntStack;
-
-#endif*/
-
-
-// int형 큐 IntQueue (소스)
-/*
-#include <stdio.h>
-#include <stdlib.h>
-#include "IntQueue.h"
-
-// 큐 초기화
-int Initialize(IntQueue *q, int max)
-{
-    q->num = q->front = q->rear = 0;
-    if ((q->que = calloc(max, sizeof(int))) == NULL) {
-        q->max = 0;          // 배열 생성에 실패
-        return -1;
-    }
-    q->max = max;
-    return 0;
-}
-
-// 큐에 데이터를 인큐
-int Enque(IntQueue *q, int x)
-{
-    if (q->num >= q->max)     // 큐가 가득 참
-        return -1;
-    else {
-        q->num++;
-        q->que[q->rear++] = x;
-        if (q->rear == q->max)
-            q->rear = 0;
-        return 0;
-    }
-}
-
-// 큐에서 데이터를 디큐
-int Deque(IntQueue *q, int *x)
-{
-    if (q->num <= 0)          // 큐는 비어 있음
-        return -1;
-    else {
-        q->num--;
-        *x = q->que[q->front++];
-        if (q->front == q->max)
-            q->front = 0;
-        return 0;
-    }
-}
 */
 
 // int형 IntStack의 사용
 #include <stdio.h>
-#include "IntStack.h"
+#include "1030.h"
+#include <stdlib.h>
 
 int main(void)
 {
@@ -132,23 +57,54 @@ int main(void)
 
 		switch (menu)
 		{
-		 case 1: /*--- 푸시 ---*/
+		 case 1:
 			printf("데이터: ");
 			scanf("%d", &x);
 			if (Push(&s, x) == -1)
 				puts("\a오류: 푸시에 실패했습니다.");
 			break;
 
-		 case 2: /*--- 팝 ---*/
+		 case 2:
 			if (Pop(&s, &x) == -1)
 				puts("\a오류: 팝에 실패했습니다.");
 			else
 				printf("팝 데이터는 %d입니다.\n", x);
 			break;
 
-		 case 3: /*--- 피크 ---*/
+		 case 3:
 			if (Peek(&s, &x) == -1)
 				puts("\a오류: 피크에 실패했습니다.");
+			else
+				printf("피크 데이터는 %d입니다.\n", x);
 			break;
+            
+         case 4:
+            Print(&s); 
+            break;
+
+         default:
+             puts("잘못된 메뉴 선택입니다.");
+             break;
 		}
 	}
+    
+    Terminate(&s); 
+    puts("스택 사용을 종료합니다.");
+
+	return 0;
+}
+
+/*
+
+## 큐 알아보기
+
+* **큐(Queue)**
+    * 데이터를 일시적으로 쌓아 두기 위한 자료구조
+    * 가장 먼저 넣은 데이터를 가장 먼저 꺼내는 **선입선출(FIFO: First-In, First-Out) 구조**를 이름
+    * 은행 창구에서 차례를 기다리는 대기열이나 마트에서 계산을 기다리는 대기열과 같음
+    * **인큐(en-queue)**: 큐에 데이터를 넣는 작업
+    * **디큐(de-queue)**: 데이터를 꺼내는 작업
+    * **프런트(front)**: 데이터를 꺼내는 쪽
+    * **리어(rear)**: 데이터를 넣는 쪽
+
+*/
