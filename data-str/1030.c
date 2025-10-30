@@ -29,73 +29,9 @@
 #   이때 스택의 상태는 호출한 함수의 역순으로 겹겹이 쌓여 있어
 #   함수 호출이 계층 구조로 이루어져 있음
 #   이 상태에서 y 함수의 실행이 종료되면 y 함수만 팝함
-*/
 
-// int형 IntStack의 사용
-#include <stdio.h>
-#include "IntStack.h"
-#include <stdlib.h>
 
-int main(void)
-{
-	IntStack s;
-	if (Initialize(&s, 64) == -1)
-	{
-		puts("스택 생성에 실패했습니다.");
-		return 1;
-	}
-
-	while (1)
-	{
-		int menu, x;
-		printf("현재 데이터 수: %d / %d\n", Size(&s), Capacity(&s));
-		printf("(1)푸시 (2)팝 (3)피크 (4)출력 (0)종료: ");
-		scanf("%d", &menu);
-
-		if (menu == 0)
-			break;
-
-		switch (menu)
-		{
-		 case 1:
-			printf("데이터: ");
-			scanf("%d", &x);
-			if (Push(&s, x) == -1)
-				puts("\a오류: 푸시에 실패했습니다.");
-			break;
-
-		 case 2:
-			if (Pop(&s, &x) == -1)
-				puts("\a오류: 팝에 실패했습니다.");
-			else
-				printf("팝 데이터는 %d입니다.\n", x);
-			break;
-
-		 case 3:
-			if (Peek(&s, &x) == -1)
-				puts("\a오류: 피크에 실패했습니다.");
-			else
-				printf("피크 데이터는 %d입니다.\n", x);
-			break;
-            
-         case 4:
-            Print(&s); 
-            break;
-
-         default:
-             puts("잘못된 메뉴 선택입니다.");
-             break;
-		}
-	}
-    
-    Terminate(&s); 
-    puts("스택 사용을 종료합니다.");
-
-	return 0;
-}
-
-/*
-
+# 04-2 큐
 ## 큐 알아보기
 
 * **큐(Queue)**
@@ -106,17 +42,7 @@ int main(void)
     * **디큐(de-queue)**: 데이터를 꺼내는 작업
     * **프런트(front)**: 데이터를 꺼내는 쪽
     * **리어(rear)**: 데이터를 넣는 쪽
-    * 
-    * 
 
-## 배열로 큐 만들기
 
-* **큐의 구현 예**
-    * **a** 배열의 프런트(front)부터 4개(19, 22, 37, 53)의 데이터가 들어가 있는 모습
-    * **b** **24 인큐**
-        * 리어(rear)의 데이터가 저장된 `que[3]`의 다음 요소 `que[4]`에 **24**를 저장
-        * 이 처리의 복잡도는 $O(1)$ 이고 적은 비용으로 구현할 수 있음
-    * **c** **19 디큐**
-        * `que[0]`에 저장된 **19**를 꺼낸 다음 두 번째 이후의 요소를 모두 앞으로 옮김
-        * 이 처리의 복잡도는 $O(n)$ 이며 데이터를 꺼낼 때마다 이런 처리를 하게 되면 효율이 떨어짐
+# 04-3 원형 큐
 */
